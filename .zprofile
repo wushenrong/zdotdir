@@ -6,7 +6,7 @@
 # .zprofile - Zsh file loaded on login.
 #
 
-if [[ ! -f "/etc/" ]]
-
 # Execute profile scripts that zsh does not
-emulate sh -c 'source /etc/profile'
+if [[ ! -f "/etc/zprofile" ]]; then
+  emulate sh -c 'source /etc/profile'
+fi
