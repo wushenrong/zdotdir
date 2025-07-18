@@ -1,6 +1,6 @@
-# SPDX-FileCopyrightText: 2018-2019 Kaleb Elwert and contributors
-# SPDX-FileCopyrightText: 2011-2017 Sorin Ionescu and contributors
 # SPDX-FileCopyrightText: 2009-2011 Robby Russell and contributors
+# SPDX-FileCopyrightText: 2011-2017 Sorin Ionescu and contributors
+# SPDX-FileCopyrightText: 2018-2019 Kaleb Elwert and contributors
 #
 # SPDX-License-Identifier: MIT
 # From belak/zsh-utils
