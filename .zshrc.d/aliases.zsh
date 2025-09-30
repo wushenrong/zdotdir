@@ -19,7 +19,7 @@ alias type="type -a"
 alias mkdir="mkdir -p"
 
 # ls
-alias ls='eza -F --time-style=long-iso --group-directories-first --git --icons --color-scale all'
+alias ls='eza -F --time-style=long-iso --group-directories-first --git --icons --color-scale all --hyperlink'
 alias l=ls
 alias ll='ls -lh'
 
@@ -36,7 +36,7 @@ alias lt='ls -T'
 alias tree=lt
 
 # find
-alias find=fd
+alias find='fd --hyperlink'
 alias fD='find -t d'
 alias fF='find -t f'
 
