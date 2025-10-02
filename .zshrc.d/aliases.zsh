@@ -44,6 +44,7 @@ alias fF='find -t f'
 alias diff=delta
 
 # grep
+unalias grep
 grep() {
   rg "$@" | diff
 }
