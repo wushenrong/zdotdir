@@ -14,7 +14,7 @@ aloxaf/fzf-tab
 Freed-Wu/fzf-tab-source
 
 # Completion styles
-belak/zsh-utils path:completion/functions kind:autoload
+belak/zsh-utils path:completion/functions kind:autoload post:compstyle_zshzoo_setup
 
 # Keybindings
 belak/zsh-utils path:editor
@@ -26,6 +26,7 @@ belak/zsh-utils path:history
 romkatv/powerlevel10k
 
 # Utilities
+belak/zsh-utils path:utility
 romkatv/zsh-bench kind:path
 
 # Other Fish-like features
