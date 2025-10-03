@@ -31,6 +31,7 @@ alias diff=delta
 
 # grep
 alias grep=rg
+gred() { grep --json | diff }
 
 # tar
 alias tar='bsdtar --posix'
