@@ -11,5 +11,4 @@ export FZF_ALT_C_OPTS="--select-1 --exit-0 --preview 'eza -1F -sName --group-dir
 
 source <(fzf --zsh)
 
-# Enable fzf-tab
 enable-fzf-tab

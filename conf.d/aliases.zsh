@@ -3,37 +3,23 @@
 # SPDX-FileCopyrightText: 2024 Samuel Wu
 #
 # SPDX-License-Identifier: MIT
-#
-# .aliases - Set whatever shell aliases you want.
-#
-
-# mask built-ins with better defaults
-alias vi=vim
 
 # fix common typos
 alias quit=exit
 alias cls=clear
 
-# aliases belak/zsh-utils
+# aliases from belak/zsh-utils
 alias type="type -a"
 alias mkdir="mkdir -p"
 
 # ls
 alias ls='eza -F --time-style=long-iso --group-directories-first --git --icons --color-scale all --hyperlink'
-alias l=ls
+
 alias ll='ls -lh'
-
 alias la='ll -a'
-alias lD='ll -D'
-alias lc='ll -1'
-alias lh='ll -d .*'
+alias l.='ll -d .*'
 
-alias lsa='la -a'
-alias lx='lsa -gHimUuS'
-alias lxa='lx -Z@'
-
-alias lt='ls -T'
-alias tree=lt
+alias tree='ls -T'
 
 # find
 alias find='fd --hyperlink'
@@ -44,10 +30,7 @@ alias fF='find -t f'
 alias diff=delta
 
 # grep
-unalias grep
-grep() {
-  rg "$@" | diff
-}
+alias grep=rg
 
 # tar
 alias tar='bsdtar --posix'
@@ -57,7 +40,8 @@ alias untar='bsdtar -xvf'
 # top
 alias top=btop
 
-# xxd
+# hexdump/xxd
+alias hd=hexyl
 alias xxd=hexyl
 
 # print paths and functions

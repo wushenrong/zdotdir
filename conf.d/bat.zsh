@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: MIT
 
 if (( $+commands[bat] )); then
-  export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -plman'"
+  export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat --theme=default -plman'"
   export MANROFFOPT="-c"
 
   alias -g -- -h='-h 2>&1 | bat -plhelp'
@@ -11,7 +11,7 @@ if (( $+commands[bat] )); then
 
   alias cat=bat
 elif (( $+commands[batcat] )); then
-  export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | batcat -plman'"
+  export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | batcat --theme=default -plman'"
   export MANROFFOPT="-c"
 
   alias -g -- -h='-h 2>&1 | batcat -plhelp'
