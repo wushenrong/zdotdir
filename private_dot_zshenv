@@ -1,71 +1,42 @@
-#!/usr/bin/env zsh
-# SPDX-FileCopyrightText: 2023 mattmc3
-# SPDX-FileCopyrightText: 2024 Samuel Wu
-#
-# SPDX-License-Identifier: MIT
-#
-# .zshenv - Zsh environment file, loaded always.
-#
+# Bootstrap ZDOTDIR
+export ZDOTDIR=${ZDOTDIR:-$HOME/.config/zsh}
 
-# XDG Base Directories
-export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
-export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
-export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
-export ZDOTDIR="${ZDOTDIR:-$XDG_CONFIG_HOME/zsh}"
-
-# FZF
-export FZF_DEFAULT_OPTS_FILE="${XDG_CONFIG_HOME}/fzf/config"
+# Applications
 
 # GTK
-export GTK2_RC_FILES="${XDG_CONFIG_HOME}/gtk-2.0/gtkrc:${XDG_CONFIG_HOME}/gtk-2.0/gtkrc.mine"
+export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc:${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc.mine"
 
 # GPG
-export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
+export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
 
 # Ripgrep
-export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"
+export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/ripgrep/config"
 
 # Wget
-export WGETRC="${XDG_CONFIG_HOME}/wgetrc"
+export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wgetrc"
 
-#
 # Languages
-#
 
 # Dotnet
-export DOTNET_CLI_HOME="${XDG_DATA_HOME}/dotnet"
+export DOTNET_CLI_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/dotnet"
 
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 export POWERSHELL_TELEMETRY_OPTOUT=true
 
-export NUGET_PACKAGES="${XDG_CACHE_HOME}/NuGetPackages"
+export NUGET_PACKAGES="${XDG_CACHE_HOME:-$HOME/.cache}/NuGetPackages"
 
 # Go
-export GOPATH="${XDG_DATA_HOME}/go"
-export GOMODCACHE="${XDG_CACHE_HOME}/go/mod"
+export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
+export GOMODCACHE="${XDG_CACHE_HOME:-$HOME/.cache}/go/mod"
 
 # Nodejs
-export NODE_REPL_HISTORY="${XDG_DATA_HOME}/node_repl_history"
+export NODE_REPL_HISTORY="${XDG_DATA_HOME:-$HOME/.local/share}/node_repl_history"
 
-export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/npmrc"
 
 # Python
-export PYTHON_HISTORY="${XDG_STATE_HOME}/python_history"
+export PYTHON_HISTORY="${XDG_STATE_HOME:-$HOME/.local/state}/python_history"
 
 # Rust
-export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
-export CARGO_HOME="${XDG_DATA_HOME}/cargo"
-
-# Ensure path arrays do not contain duplicates.
-typeset -gU path fpath
-
-# Set the list of directories that zsh searches for commands.
-path=(
-  $HOME/.local/bin
-  $CARGO_HOME/bin
-  $GOPATH/bin
-  $XDG_DATA_HOME/npm/bin
-  /usr/local/{,s}bin(N)
-  /snap/bin
-  $path
-)
+export RUSTUP_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/rustup"
+export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"

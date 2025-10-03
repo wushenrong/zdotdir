@@ -3,26 +3,13 @@
 # SPDX-FileCopyrightText: 2024 Samuel Wu
 #
 # SPDX-License-Identifier: MIT
-#
-# .zstyles - Set zstyle settings for plugins that need them.
-#
 
-#
-# Antidote
-#
+# antidote
+zstyle ':antidote:bundle' file ${ZDOTDIR:-HOME}/zsh_plugins.txt
+zstyle ':antidote:bundle' use-friendly-names on
 
-zstyle ':antidote:bundle' file "$ZDOTDIR/.zsh_plugins.txt"
-zstyle ':antidote:bundle' use-friendly-names yes
-
-#
-# FZF-Tab
-#
-
-zstyle ':completion:*:git-checkout:*' sort false
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu no
-
+# fzf-tab
 [[ -n $TMUX ]] && zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+zstyle ':fzf-tab:*' fzf-flags --preview-window=right:50% --bind=tab:accept
+zstyle ':fzf-tab:*' show-group quiet
 zstyle ':fzf-tab:*' switch-group '<' '>'
-zstyle ':fzf-tab:*' use-fzf-default-opts yes
-zstyle ':fzf-tab:*' popup-min-size 80 10
