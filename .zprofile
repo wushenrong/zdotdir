@@ -3,7 +3,7 @@
 #
 # SPDX-License-Identifier: MIT
 
-# Execute profile scripts that zsh does not
-if [[ ! -f "/etc/zprofile" ]]; then
+# Execute profile scripts if the base system does not
+if [[ ! -f "/etc/zprofile" || ! -f "/etc/zsh/zprofile" ]]; then
   emulate sh -c 'source /etc/profile'
 fi
