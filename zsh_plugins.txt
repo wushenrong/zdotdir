@@ -7,8 +7,8 @@
 # Completions
 mattmc3/zephyr path:plugins/completion
 zsh-users/zsh-completions kind:fpath path:src
-aloxaf/fzf-tab
-# Freed-Wu/fzf-tab-source
+aloxaf/fzf-tab kind:defer
+Freed-Wu/fzf-tab-source
 
 # Better defaults
 mattmc3/zephyr path:plugins/confd
@@ -18,7 +18,7 @@ mattmc3/zephyr path:plugins/history
 mattmc3/zephyr path:plugins/utility
 
 # Prompt
-romkatv/powerlevel10k kind:fpath
+romkatv/powerlevel10k
 
 # Utilties
 romkatv/zsh-bench kind:path
