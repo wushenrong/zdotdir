@@ -10,5 +10,3 @@ export FZF_CTRL_T_OPTS="--select-1 --exit-0 --ansi --preview 'less {}'"
 export FZF_ALT_C_OPTS="--select-1 --exit-0 --preview 'eza -1F -sName --group-directories-first --icons --color=always {}'"
 
 source <(fzf --zsh)
-
-# enable-fzf-tab
