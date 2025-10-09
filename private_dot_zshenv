@@ -40,3 +40,9 @@ export PYTHON_HISTORY="${XDG_STATE_HOME:-$HOME/.local/state}/python_history"
 # Rust
 export RUSTUP_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/rustup"
 export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
+
+# Java
+export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=${XDG_CONFIG_HOME:-$HOME/.config}/java -Djavafx.cachedir=${XDG_CACHE_HOME:-$HOME/.cache}/openjfx"
+
+export MAVEN_OPTS="-Dmaven.repo.local=${XDG_DATA_HOME:-$HOME/.local/share}/maven/repository"
+export MAVEN_ARGS="--settings ${XDG_CONFIG_HOME:-$HOME/.config}/maven/settings.xml"
