@@ -41,6 +41,9 @@ alias untar='bsdtar -xvf'
 # top
 alias top=btop
 
+# ps
+alias ps=procs
+
 # hexdump/xxd
 alias hd=hexyl
 alias xxd=hexyl
