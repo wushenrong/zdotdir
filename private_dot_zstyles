@@ -5,11 +5,17 @@
 # SPDX-License-Identifier: MIT
 
 # antidote
-zstyle ':antidote:bundle' file ${ZDOTDIR:-HOME}/zsh_plugins.txt
-zstyle ':antidote:bundle' use-friendly-names on
+zstyle ':antidote:bundle' file $ZDOTDIR/zsh_plugins.txt
+zstyle ':antidote:bundle' use-friendly-names 'on'
+
+# zephyr
+zstyle ':zephyr:plugin:environment' use-xdg-basedirs 'yes'
+zstyle ':zephyr:plugin:environment' prepath \
+  $HOME/.local/share/cargo/bin \
+  $HOME/go/bin
 
 # fzf-tab
-[[ -n $TMUX ]] && zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
-zstyle ':fzf-tab:*' fzf-flags --preview-window=right:50% --bind=tab:accept
-zstyle ':fzf-tab:*' show-group quiet
+[[ -n $TMUX ]] && zstyle ':fzf-tab:*' fzf-command 'ftb-tmux-popup'
+zstyle ':fzf-tab:*' fzf-flags '--preview-window=right:50% --bind=tab:accept'
+zstyle ':fzf-tab:*' show-group 'quiet'
 zstyle ':fzf-tab:*' switch-group '<' '>'

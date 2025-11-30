@@ -18,20 +18,12 @@ export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wgetrc"
 # Languages
 
 # Dotnet
-export DOTNET_CLI_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/dotnet"
-
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 export POWERSHELL_TELEMETRY_OPTOUT=true
-
-export NUGET_PACKAGES="${XDG_CACHE_HOME:-$HOME/.cache}/NuGetPackages"
-
-# Go
-export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
-export GOMODCACHE="${XDG_CACHE_HOME:-$HOME/.cache}/go/mod"
+export VCPKG_DISABLE_METRICS=true
 
 # Nodejs
 export NODE_REPL_HISTORY="${XDG_DATA_HOME:-$HOME/.local/share}/node_repl_history"
-
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/npmrc"
 
 # Python
