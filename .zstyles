@@ -12,7 +12,8 @@ zstyle ':antidote:bundle' use-friendly-names 'on'
 zstyle ':zephyr:plugin:environment' use-xdg-basedirs 'yes'
 zstyle ':zephyr:plugin:environment' prepath \
   $HOME/.local/share/cargo/bin \
-  $HOME/go/bin
+  $HOME/go/bin \
+  $HOME/.local/{,s}bin(N)
 
 # fzf-tab
 [[ -n $TMUX ]] && zstyle ':fzf-tab:*' fzf-command 'ftb-tmux-popup'
