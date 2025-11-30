@@ -5,14 +5,14 @@
 # SPDX-License-Identifier: MIT
 
 # antidote
-zstyle ':antidote:bundle' file '${ZDOTDIR:-HOME}/zsh_plugins.txt'
+zstyle ':antidote:bundle' file $ZDOTDIR/zsh_plugins.txt
 zstyle ':antidote:bundle' use-friendly-names 'on'
 
 # zephyr
 zstyle ':zephyr:plugin:environment' use-xdg-basedirs 'yes'
 zstyle ':zephyr:plugin:environment' prepath \
-  '$HOME/.local/share/cargo/bin' \
-  '$HOME/go/bin'
+  $HOME/.local/share/cargo/bin \
+  $HOME/go/bin
 
 # fzf-tab
 [[ -n $TMUX ]] && zstyle ':fzf-tab:*' fzf-command 'ftb-tmux-popup'
