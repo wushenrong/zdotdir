@@ -31,7 +31,7 @@ export RUSTUP_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/rustup"
 export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
 
 # Go
-export GOPATH="$HOME/go"
+export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 
 # Java
 export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=${XDG_CONFIG_HOME:-$HOME/.config}/java -Djavafx.cachedir=${XDG_CACHE_HOME:-$HOME/.cache}/openjfx"
