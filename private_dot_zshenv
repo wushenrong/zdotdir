@@ -6,9 +6,6 @@ export ZDOTDIR=${ZDOTDIR:-$HOME/.config/zsh}
 # GTK
 export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc:${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc.mine"
 
-# GPG
-export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
-
 # Ripgrep
 export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/ripgrep/config"
 
