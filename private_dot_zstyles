@@ -8,6 +8,22 @@
 zstyle ':antidote:bundle' file $ZDOTDIR/zsh_plugins.txt
 zstyle ':antidote:bundle' use-friendly-names 'on'
 
+# completions
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*:default' list-prompt '%S%M matches%s'
+
+zstyle ':completion:*:*:*:*:*' menu 'no'
+zstyle ':completion:*:matches' group 'yes'
+zstyle ':completion:*:options' description 'yes'
+zstyle ':completion:*:options' auto-description '[%d]'
+zstyle ':completion:*:corrections' format '[%d] (%e)'
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':completion:*:messages' format '[%d]'
+zstyle ':completion:*:warnings' format 'no matches found'
+zstyle ':completion:*' format '[%d]'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' verbose yes
+
 # zephyr
 zstyle ':zephyr:plugin:completion' compstyle 'none'
 zstyle ':zephyr:plugin:environment' use-xdg-basedirs 'yes'
