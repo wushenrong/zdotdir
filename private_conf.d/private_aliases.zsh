@@ -9,8 +9,8 @@ alias quit=exit
 alias cls=clear
 
 # aliases from belak/zsh-utils
-alias type="type -a"
-alias mkdir="mkdir -p"
+alias type='type -a'
+alias mkdir='mkdir -p'
 
 # ls
 alias ls='eza -F -sName --time-style=long-iso --group-directories-first --git --icons --color-scale all --hyperlink'
@@ -50,7 +50,7 @@ alias xxd=hexyl
 
 # print paths and functions
 alias print-fpath='for fp in $fpath; do printf "%s\n" "$fp"; done; unset fp'
-alias print-path='printf "%s\n" "$PATH" | tr ":" "\n"'
+alias print-path='printf "%s\n" "${PATH}" | tr ":" "\n"'
 alias print-functions='print -l ${(k)functions[(I)[^_]*]} | sort'
 
 # misc
