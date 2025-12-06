@@ -25,6 +25,7 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*' verbose yes
 
 # zephyr
+zstyle ':zephyr:plugin:completion' compstyle 'none'
 zstyle ':zephyr:plugin:environment' use-xdg-basedirs 'yes'
 zstyle ':zephyr:plugin:environment' prepath \
   $CARGO_HOME/bin \
