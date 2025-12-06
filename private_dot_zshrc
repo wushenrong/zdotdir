@@ -21,6 +21,9 @@ antidote load
 # Set colors for ls/find/etc
 export LS_COLORS="$(vivid generate molokai)"
 
+# Set timezone
+export TZ='America/New_York'
+
 # Set a smartter cd
 source <(zoxide init zsh --cmd cd)
 
