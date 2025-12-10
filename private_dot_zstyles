@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+v#!/usr/bin/env zsh
 # SPDX-FileCopyrightText: 2023 mattmc3
 # SPDX-FileCopyrightText: 2024 Samuel Wu
 #
@@ -11,8 +11,8 @@ zstyle ':antidote:bundle' use-friendly-names 'on'
 # zephyr
 zstyle ':zephyr:plugin:environment' use-xdg-basedirs 'yes'
 zstyle ':zephyr:plugin:environment' prepath \
-  $HOME/.local/share/cargo/bin \
-  $HOME/go/bin \
+  $CARGO_HOME/bin \
+  $GOPATH/bin \
   $HOME/.local/{,s}bin(N)
 
 # fzf-tab
