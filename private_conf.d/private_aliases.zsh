@@ -41,6 +41,9 @@ alias untar='bsdtar -xvf'
 # top
 alias top=btop
 
+# fetch
+alias fetch=fastfetch
+
 # ps
 alias ps=procs
 
