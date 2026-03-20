@@ -47,6 +47,12 @@ alias fetch=fastfetch
 # ps
 alias ps=procs
 
+# df
+alias df=duf
+
+# du
+alias du=gdu
+
 # hexdump/xxd
 alias hd=hexyl
 alias xxd=hexyl
