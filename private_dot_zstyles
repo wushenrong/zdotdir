@@ -34,6 +34,6 @@ zstyle ':zephyr:plugin:environment' prepath \
 
 # fzf-tab
 [[ -n $TMUX ]] && zstyle ':fzf-tab:*' fzf-command 'ftb-tmux-popup'
-zstyle ':fzf-tab:*' fzf-flags '--preview-window=right:50% --bind=tab:accept'
+zstyle ':fzf-tab:*' fzf-flags '--bind=tab:accept'
 zstyle ':fzf-tab:*' show-group 'quiet'
 zstyle ':fzf-tab:*' switch-group '<' '>'
