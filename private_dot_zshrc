@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: MIT
 
 # Start tmux unless we are in tmux already, kitty, or vscode
-if [[ -z "${TMUX+X}${ZSH_SCRIPT+X}${ZSH_EXECUTION_STRING+X}${KITTY_PID+X}" || "$TERM_PROGRAM" == "vscode" ]]; then
+if [[ -z "${TMUX+X}${ZSH_SCRIPT+X}${ZSH_EXECUTION_STRING+X}${KITTY_PID+X}" && "$TERM_PROGRAM" != "vscode" ]]; then
   exec tmux
 fi
 
