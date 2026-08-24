@@ -1,7 +1,7 @@
-#!/usr/bin/env zsh
-# SPDX-FileCopyrightText: 2025 Samuel Wu
+#!/bin/zsh
 #
-# SPDX-License-Identifier: MIT
+# .zshrc - Zsh file loaded on login shell sessions.
+#
 
 # Execute profile scripts if the base system does not
 if [[ ! -f '/etc/zprofile' || ! -f '/etc/zsh/zprofile' ]]; then
