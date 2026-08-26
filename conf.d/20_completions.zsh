@@ -18,12 +18,9 @@ setopt NO_case_glob
 
 # Completion style
 zstyle ':completion:*' menu 'no'
-[[ -n $TMUX ]] && zstyle ':fzf-tab:*' fzf-command 'ftb-tmux-popup'
-# zstyle ':fzf-tab:*' fzf-flags '--preview-window=right:50%'
-# zstyle ':fzf-tab:*' popup-min-size 72 12
-# zstyle ':fzf-tab:*' show-group 'quiet'
+[[ -n "$TMUX" ]] && zstyle ':fzf-tab:*' fzf-command 'ftb-tmux-popup'
+zstyle ':fzf-tab:*' popup-min-size 100 8
 zstyle ':fzf-tab:*' switch-group '<' '>'
-
 
 # Add completions
 fpath=($XDG_DATA_HOME/zsh/zsh-completions/src $fpath)
