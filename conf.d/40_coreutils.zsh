@@ -18,7 +18,7 @@ elif (( $+commands[batcat] )); then
   _which_bat=batcat
 fi
 
-export MANPAGER="${_which_bat} --strip-ansi=always --theme=default -plman"
+export MANPAGER="${_which_bat} --strip-ansi=always -plman"
 
 alias -g -- -h="-h 2>&1 | ${_which_bat} -plhelp"
 alias -g -- --help="--help 2>&1 | ${_which_bat} -plhelp"
