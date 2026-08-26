@@ -158,10 +158,9 @@ function add-accept-line-hook() {
 # A hook that went away is skipped rather than spelled out to the terminal on
 # every keypress. The loop variable is named oddly so hooks can use their own.
 function run-accept-line-hooks() {
-  local _z1_hook
-  for _z1_hook in $accept_line_hook; do
-    zstyle -t ':z1:editor:accept-line' debug && print -u2 "accept-line hook: $_z1_hook"
-    (( $+functions[${_z1_hook%% *}] )) && "${=_z1_hook}"
+  local _line_hook
+  for _line_hook in $accept_line_hook; do
+    (( $+functions[${_line_hook%% *}] )) && "${=_line_hook}"
   done
   return 0
 }
@@ -191,7 +190,7 @@ fi
 # here, or the answer would not be the one the prompt would give.
 function command-is-complete() {
   setopt local_options no_err_return no_err_exit
-  local f=-z1-command-test
+  local f=-command-test
 
   # An odd number of trailing backslashes continues the line.
   (( ${#${1##*[^\\]}} % 2 )) && return 1
@@ -222,16 +221,6 @@ function accept-line-or-newline() {
   fi
 }
 zle -N accept-line-or-newline
-
-# Hijacking Enter is not polite, so this feature is opt-in:
-#   zstyle ':z1:editor' accept-line-or-newline 'yes'
-if zstyle -t ':z1:editor' accept-line-or-newline; then
-  for _z1_keymap in emacs viins; do
-    bindkey -M $_z1_keymap '^M' accept-line-or-newline
-    bindkey -M $_z1_keymap '^J' accept-line-or-newline
-  done
-  unset _z1_keymap
-fi
 
 #
 # Keybindings
