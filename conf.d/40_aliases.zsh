@@ -6,9 +6,6 @@ alias cls=clear
 alias type='type -a'
 alias mkdir='mkdir -p'
 
-# Grep with diff
-gred() { grep --json | diff; }
-
 # Use XDG for wget
 alias wget="wget --hsts-file=$XDG_STATE_HOME/wget-hsts"
 
@@ -24,3 +21,9 @@ alias print-functions='print -l ${(k)functions[(I)[^_]*]} | sort'
 
 # Print a simple colormap.
 alias colormap='for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+"\n"}; done'
+
+# Kitty terminal commands
+if [[ "$TERM" == xterm-kitty ]]; then
+  alias icat='kitten icat'
+  alias ssh='kitten ssh'
+fi

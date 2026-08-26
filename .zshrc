@@ -10,11 +10,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Load configurations for zsh plugins
-[[ ! -f "${ZDOTDIR:-$HOME}/.zstyles" ]] || source "${ZDOTDIR:-$HOME}/.zstyles"
-
-# Source configuration
-for _rc in ${ZDOTDIR:-$HOME}/conf.d/*.zsh; do
+# Source configurations
+for _rc in $ZDOTDIR/conf.d/*.zsh; do
   # Ignore tilde files.
   if [[ $_rc:t != '~'* ]]; then
     source "$_rc"
