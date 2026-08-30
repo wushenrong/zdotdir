@@ -1,5 +1,5 @@
 # eza/ls
-alias ls='eza -F -sName --time-style=long-iso --group-directories-first --git --icons --hyperlink --color-scale=all'
+alias ls='eza -F -sName --group-directories-first --git --icons --hyperlink --color-scale=all'
 
 alias ll='ls -lh'
 alias la='ll -a'

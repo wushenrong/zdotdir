@@ -92,6 +92,7 @@ export LESS='-g -i -M -R -S -w -z-4'
 
 # Locale
 export LANG=en_US.UTF-8
+export TIME_STYLE="long-iso"
 
 # ZSH History
 HISTFILE=$XDG_STATE_HOME/zsh_history
