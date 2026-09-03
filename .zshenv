@@ -12,8 +12,11 @@ export XDG_STATE_HOME=${XDG_STATE_HOME:-$HOME/.local/state}
 # Bootstrap ZDOTDIR
 export ZDOTDIR=${ZDOTDIR:-$XDG_CONFIG_HOME/zsh}
 
-# Docker
-export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
+# Claude
+export CLAUDE_CONFIG_DIR=$XDG_CONFIG_HOME/claude
+
+# Copilot
+export COPILOT_HOME=$XDG_CONFIG_HOME/copilot
 
 # Fzf
 export FZF_DEFAULT_OPTS_FILE=$XDG_CONFIG_HOME/fzf/config
@@ -95,6 +98,7 @@ export LANG=en_US.UTF-8
 export TIME_STYLE="long-iso"
 
 # ZSH History
+HISTORY_IGNORE='(cd(| .| ..| \~| \-)|cl(ear|s)|exit|halt|history|l[als\.]|poweroff|pwd|quit|reboot|shutdown|tree)'
 HISTFILE=$XDG_STATE_HOME/zsh_history
 SAVEHIST=100000
 HISTSIZE=20000

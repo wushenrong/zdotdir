@@ -19,6 +19,8 @@ AUTOPAIR_PAIRS+=("<" ">")
 source "$_plugin_location/zsh-autopair/zsh-autopair.plugin.zsh"
 autopair-init
 
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
 zsh-defer source "$_plugin_location/fsh/fast-syntax-highlighting.plugin.zsh"
 zsh-defer source "$_plugin_location/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
 zsh-defer source "$_plugin_location/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh"
