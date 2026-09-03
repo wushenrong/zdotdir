@@ -8,13 +8,13 @@ alias l.='ll -d .*'
 alias tree='ls -T'
 
 # zoxide/cd
-source <(zoxide init zsh)
+source <(zoxide init zsh --cmd cd)
 
 # bat/cat
 local _which_bat
-if (( $+commands[bat] )); then
+if (($+commands[bat])); then
   _which_bat=bat
-elif (( $+commands[batcat] )); then
+elif (($+commands[batcat])); then
   _which_bat=batcat
 fi
 
@@ -37,7 +37,7 @@ alias diff=delta
 
 # grep/ripgrep
 alias grep=rg
-gred() { grep --json "$1" | diff; }
+gred() { rg --json "$1" | delta; }
 
 # bsdtar/gnutar
 alias tar='bsdtar --posix'
