@@ -98,7 +98,7 @@ export LANG=en_US.UTF-8
 export TIME_STYLE="long-iso"
 
 # ZSH History
-HISTORY_IGNORE='(cd(|i| *)|cl(ear|s)|code .|exit|git(| [a-z])|halt|history|?kill(| *)|l[als\.]|poweroff|ps|pwd|quit|reboot|shutdown|tmux|topgrade|tree)'
+HISTORY_IGNORE='(cd(|i| *)|cl(ear|s)|code .|exit|git(| [a-z])|halt|history|?kill(| *)|l[als\.]|poweroff|ps|pwd|quit|reboot|shutdown|tmux(| *)|topgrade|tree)'
 HISTFILE=$XDG_STATE_HOME/zsh_history
 SAVEHIST=100000
 HISTSIZE=20000
