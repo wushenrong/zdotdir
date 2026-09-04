@@ -5,4 +5,7 @@ export FZF_ALT_C_COMMAND="bfs -type d -mindepth 1 -nohidden -printf '%P\n'"
 export FZF_CTRL_T_OPTS="--select-1 --exit-0 --ansi --preview 'less {}'"
 export FZF_ALT_C_OPTS="--select-1 --exit-0 --preview 'eza -1F -sName --group-directories-first --icons --color=always {}'"
 
+# A fix for fzf-tab
+export FZF_DEFAULT_OPTS="--popup 80%"
+
 source <(fzf --zsh)
