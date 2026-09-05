@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 mattmc3
+#
+# SPDX-License-Identifier: MIT
+
 #
 # Set ZSH options
 #

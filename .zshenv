@@ -1,4 +1,7 @@
 #!/bin/bash
+# SPDX-FileCopyrightText: 2026 Samuel Wu
+#
+# SPDX-License-Identifier: MIT
 #
 # .zshenv - Zsh environment file, loaded always.
 #

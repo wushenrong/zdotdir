@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 mattmc3
+#
+# SPDX-License-Identifier: MIT
+
 # Set the Less input preprocessor.
 # Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
 if [[ -z "$LESSOPEN" ]] && (( $#commands[(i)lesspipe(|.sh)] )); then

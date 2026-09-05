@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 mattmc3
+#
+# SPDX-License-Identifier: MIT
+
 # Replace the stub run-help (aliased to man) with the real autoload version.
 (( $+aliases[run-help] )) && unalias run-help
 autoload -Uz run-help
@@ -19,6 +23,12 @@ function copypath() {
   emulate -L zsh
   local file=${1:-$PWD}
   print -rn -- "${file:a}" | wl-copy
+}
+
+# Cross platform `sed -i` syntax.
+function sedi {
+  # GNU/BSD
+  sed --version &>/dev/null && sed -i -- "$@" || sed -i "" "$@"
 }
 
 # Make a directory and cd into it, parents included.

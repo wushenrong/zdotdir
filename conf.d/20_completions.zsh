@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 mattmc3
+#
+# SPDX-License-Identifier: MIT
+
 # Defaults
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:default' list-prompt '%S%M matches%s'
@@ -30,7 +34,7 @@ fpath=($XDG_DATA_HOME/zsh/zsh-completions/src $fpath)
 # shell is opened each day.
 autoload -Uz compinit
 _comp_files=($_zcompdump(Nmh-20))
-if (( $#_comp_files )); then
+if (($#_comp_files)); then
   compinit -i -C -d "$_zcompdump"
 else
   compinit -i -d "$_zcompdump"

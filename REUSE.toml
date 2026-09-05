@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: 2026 Samuel Wu
+#
+# SPDX-License-Identifier: MIT
+
+version = 1
+
+[[annotations]]
+SPDX-FileCopyrightText = "2026 Samuel Wu"
+SPDX-License-Identifier = "MIT"
+path = ["README.md", ".p10k.zsh"]
