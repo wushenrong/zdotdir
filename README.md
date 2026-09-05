@@ -1,8 +1,7 @@
 # zdotdir
 
 My zsh configurations based on <https://github.com/getantidote/zdotdir>,
-<https://github.com/mattmc3/zephyr>, <https://github.com/mattmc3/z1>. Plugins
-managed with <https://chezmoi.io>.
+<https://github.com/mattmc3/zephyr>, <https://github.com/mattmc3/z1>.
 
 You will need
 
@@ -25,4 +24,4 @@ You will need
 
 ## License
 
-Licensed under the MIT License.
+This repository is licensed under the MIT License.

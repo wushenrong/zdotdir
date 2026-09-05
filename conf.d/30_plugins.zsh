@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2026 mattmc3
+# SPDX-FileCopyrightText: 2026 Samuel Wu
+#
+# SPDX-License-Identifier: MIT
+
 _plugin_location="$XDG_DATA_HOME/zsh"
 
 # Defer plugins

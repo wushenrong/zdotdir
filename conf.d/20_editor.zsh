@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 mattmc3
+#
+# SPDX-License-Identifier: MIT
+
 # Treat these characters as part of a word.
 WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
 
@@ -34,18 +38,6 @@ function bindkey-multiple() {
     [[ -n "$seq" ]] && bindkey $keymap "$seq" "$widget"
   done
 }
-
-# Use line cursor
-# Skip on terminals that don't grok DECSCUSR.
-function update-cursor-style() {
-  case $TERM in
-  xterm* | rxvt* | tmux* | screen*) ;;
-  *) [[ -z "$TMUX" ]] && return ;;
-  esac
-
-  printf '\e[6 q'
-}
-zle -N update-cursor-style
 
 # Enable terminal application mode so $terminfo key sequences are valid.
 function zle-line-init() {
