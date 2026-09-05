@@ -42,7 +42,6 @@ function bindkey-multiple() {
 # Enable terminal application mode so $terminfo key sequences are valid.
 function zle-line-init() {
   (( $+terminfo[smkx] )) && echoti smkx
-  zle update-cursor-style
 }
 zle -N zle-line-init
 
@@ -52,7 +51,6 @@ function zle-line-finish() {
 zle -N zle-line-finish
 
 function zle-keymap-select() {
-  zle update-cursor-style
   zle reset-prompt
   zle -R
 }
