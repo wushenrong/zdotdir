@@ -26,8 +26,8 @@ zstyle ':completion:*' menu 'no'
 zstyle ':fzf-tab:*' popup-min-size 100 8
 zstyle ':fzf-tab:*' switch-group '<' '>'
 
-# Add completions
-fpath=($XDG_DATA_HOME/zsh/zsh-completions/src $fpath)
+# Add newer completions to fpath before system completions
+fpath=($ZPLUGINDIR/zsh-completions/src $fpath)
 
 # Load and initialize the completion system ignoring insecure directories with a
 # cache time of 20 hours, so it should almost always regenerate the first time a

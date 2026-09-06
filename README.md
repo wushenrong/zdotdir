@@ -1,7 +1,8 @@
 # zdotdir
 
 My zsh configurations based on <https://github.com/getantidote/zdotdir>,
-<https://github.com/mattmc3/zephyr>, <https://github.com/mattmc3/z1>.
+<https://github.com/mattmc3/zephyr>, <https://github.com/mattmc3/z1>, using
+<https://github.com/mattmc3/zsh_unplugged>.
 
 You will need
 

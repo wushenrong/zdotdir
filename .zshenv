@@ -12,8 +12,9 @@ export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
 export XDG_STATE_HOME=${XDG_STATE_HOME:-$HOME/.local/state}
 
-# Bootstrap ZDOTDIR
+# Bootstrap ZDOTDIR and ZPLUGINDIR
 export ZDOTDIR=${ZDOTDIR:-$XDG_CONFIG_HOME/zsh}
+export ZPLUGINDIR=${ZPLUGINDIR:-$XDG_DATA_HOME/zsh/plugins}
 
 # Claude
 export CLAUDE_CONFIG_DIR=$XDG_CONFIG_HOME/claude
@@ -105,6 +106,12 @@ HISTORY_IGNORE='(cd(|i| *)|cl(ear|s)|code .|exit|git(| [a-z])|halt|history|?kill
 HISTFILE=$XDG_STATE_HOME/zsh_history
 SAVEHIST=100000
 HISTSIZE=20000
+
+# ZSH Plugins Settings
+typeset -gA AUTOPAIR_PAIRS
+AUTOPAIR_PAIRS+=("<" ">")
+
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # Setup Paths
 typeset -gU path fpath cdpath mailpath
