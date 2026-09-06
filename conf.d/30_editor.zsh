@@ -161,10 +161,10 @@ function run-accept-line-hooks() {
 # Wrap the widget rather than rebind Enter, so ^M, ^J, vicmd Enter, and widgets
 # calling accept-line themselves all go through it. Whoever wrapped it first
 # keeps their turn. The guard stops a re-source wrapping our own wrapper.
-if ((! $+functions[accept - line - with - hooks])); then
-  case ${widgets[accept - line]} in
+if ((! $+functions[accept-line-with-hooks])); then
+  case ${widgets[accept-line]} in
   user:*)
-    zle -N accept-line-orig "${widgets[accept - line]#user:}"
+    zle -N accept-line-orig "${widgets[accept-line]#user:}"
     function accept-line-with-hooks() {
       run-accept-line-hooks
       zle accept-line-orig -- "$@"
@@ -233,7 +233,7 @@ bindkey-multiple backward-word '^[[1;5D' # Ctrl + Left
 bindkey-multiple forward-word '^[[1;5C'  # Ctrl + Right
 
 # Terminals disagree on what Alt + arrow sends, so bind all three spellings.
-if (($+widgets[prevd - or - backward - word])); then
+if (($+widgets[prevd-or-backward-word])); then
   bindkey-multiple prevd-or-backward-word '^[[1;3D' '^[[1;9D' '^[^[[D'
   bindkey-multiple nextd-or-forward-word '^[[1;3C' '^[[1;9C' '^[^[[C'
 else

@@ -16,12 +16,12 @@ function plugin-source {
 
 # Initialize plugins
 plugins=(
+  powerlevel10k
+
   zsh-defer
 
   fzf-tab
   fzf-tab-source
-
-  powerlevel10k
 
   zsh-autopair
   fast-syntax-highlighting
