@@ -84,3 +84,6 @@ alias du=gdu
 # hexyl/hexdump/xxd
 alias hd=hexyl
 alias xxd=hexyl
+
+# msedit
+alias edit=msedit

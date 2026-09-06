@@ -6,7 +6,7 @@
 WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
 
 # Reset keybinds
-bindkey -d
+bindkey -e
 
 # Prefer terminal-reported key sequences when available.
 zmodload zsh/terminfo
@@ -227,8 +227,8 @@ zle -N accept-line-or-newline
 bindkey-multiple beginning-of-line-or-buffer "${terminfo[khome]-}" '^[[H'
 bindkey-multiple end-of-line-or-buffer "${terminfo[kend]-}" '^[[F'
 bindkey-multiple delete-char "${terminfo[kdch1]-}" '^[[3~'
-bindkey-multiple up-line-or-history-search "${terminfo[kcuu1]-}" '^[[A' '^[OA'
-bindkey-multiple down-line-or-history-search "${terminfo[kcud1]-}" '^[[B' '^[OB'
+bindkey-multiple history-substring-search-up "${terminfo[kcuu1]-}" '^[[A' '^[OA'
+bindkey-multiple history-substring-search-down "${terminfo[kcud1]-}" '^[[B' '^[OB'
 bindkey-multiple backward-word '^[[1;5D' # Ctrl + Left
 bindkey-multiple forward-word '^[[1;5C'  # Ctrl + Right
 
@@ -240,10 +240,6 @@ else
   bindkey-multiple backward-word '^[[1;3D' '^[[1;9D' '^[^[[D'
   bindkey-multiple forward-word '^[[1;3C' '^[[1;9C' '^[^[[C'
 fi
-
-# Vi keybindings.
-bindkey-multiple -M vicmd up-line-or-history-search "${terminfo[kcuu1]-}" '^[[A' '^[OA'
-bindkey-multiple -M vicmd down-line-or-history-search "${terminfo[kcud1]-}" '^[[B' '^[OB'
 
 # Backspace and word deletion.
 bindkey '^?' backward-delete-char
@@ -258,18 +254,20 @@ bindkey '^X^X' hist-complete
 # Copy the line to the clipboard. Ctrl+X Ctrl+C is unbound by default, unlike
 # the Ctrl+O other configs use for this, which is accept-line-and-down-history.
 bindkey -M emacs '^X^C' copybuffer
-bindkey -M viins '^X^C' copybuffer
-bindkey -M vicmd '^X^C' copybuffer
 
-# Toggle comment at start of line. Alt-; in emacs, # in vi cmd mode.
+# Toggle comment at start of line. Alt-; in emacs.
 bindkey -M emacs '^[;' pound-toggle
-bindkey -M vicmd '#' vi-pound-insert
 
 # Prepend sudo with Alt-s.
 bindkey -M emacs '^[s' prepend-sudo
-bindkey -M viins '^[s' prepend-sudo
 
-# Resume a job with Ctrl+Z. Unbound in emacs, and only inserts a literal ^Z in
-# viins, so nothing useful is lost. vicmd keeps its own meaning.
+# Resume a job with Ctrl+Z.
 bindkey -M emacs '^Z' fg-job
-bindkey -M viins '^Z' fg-job
+
+#
+# Expand alias
+#
+
+# Expand history with space automatically
+bindkey -M emacs ' ' magic-space
+bindkey -M isearch ' ' magic-space
