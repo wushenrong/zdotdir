@@ -34,9 +34,9 @@ source <(zoxide init zsh --cmd cd)
 
 # bat/cat
 local _which_bat
-if (( $+commands[bat] )); then
+if (($+commands[bat])); then
   _which_bat=bat
-elif (( $+commands[batcat] )); then
+elif (($+commands[batcat])); then
   _which_bat=batcat
 fi
 
