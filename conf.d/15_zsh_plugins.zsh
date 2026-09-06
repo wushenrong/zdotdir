@@ -32,6 +32,13 @@ function plugin-clone {
   done
 }
 
+function plugin-update {
+  for d in $ZPLUGINDIR/*/.git(/); do
+    echo "Updating ${d:h:t}..."
+    command git -C "${d:h}" pull --ff --recurse-submodules --depth 1 --rebase --autostash
+  done
+}
+
 # Download all plugins before initialization
 repos=(
   'Aloxaf/fzf-tab'
