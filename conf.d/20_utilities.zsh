@@ -3,19 +3,22 @@
 # SPDX-License-Identifier: MIT
 
 # Replace the stub run-help (aliased to man) with the real autoload version.
-(( $+aliases[run-help] )) && unalias run-help
+(($+aliases[run - help])) && unalias run-help
 autoload -Uz run-help
 alias help=run-help
 
-if (( ! $+commands[open] && $+commands[xdg-open] )); then
+if ((! $+commands[open] && $+commands[xdg - open])); then
   alias open='xdg-open'
 fi
 
 # Copy a file's contents to the clipboard.
 function copyfile() {
   emulate -L zsh
-  [[ -f "$1" ]] || { print -ru2 -- "copyfile: not a file: ${1:-}"; return 1; }
-  wl-copy < "$1"
+  [[ -f "$1" ]] || {
+    print -ru2 -- "copyfile: not a file: ${1:-}"
+    return 1
+  }
+  wl-copy <"$1"
 }
 
 # Copy a path to the clipboard, made absolute. Defaults to $PWD.
@@ -34,7 +37,10 @@ function sedi {
 # Make a directory and cd into it, parents included.
 function mkcd() {
   emulate -L zsh
-  [[ -n "${1:-}" ]] || { print -ru2 -- "mkcd: expecting a directory argument"; return 1; }
+  [[ -n "${1:-}" ]] || {
+    print -ru2 -- "mkcd: expecting a directory argument"
+    return 1
+  }
   mkdir -p -- "$1" && builtin cd -- "$1"
 }
 

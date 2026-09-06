@@ -41,12 +41,12 @@ function bindkey-multiple() {
 
 # Enable terminal application mode so $terminfo key sequences are valid.
 function zle-line-init() {
-  (( $+terminfo[smkx] )) && echoti smkx
+  (($+terminfo[smkx])) && echoti smkx
 }
 zle -N zle-line-init
 
 function zle-line-finish() {
-  (( $+terminfo[rmkx] )) && echoti rmkx
+  (($+terminfo[rmkx])) && echoti rmkx
 }
 zle -N zle-line-finish
 
@@ -60,7 +60,7 @@ zle -N zle-keymap-select
 function prepend-sudo() {
   if [[ "$BUFFER" != su(do|)\ * ]]; then
     BUFFER="sudo $BUFFER"
-    (( CURSOR += 5 ))
+    ((CURSOR += 5))
   fi
 }
 zle -N prepend-sudo
@@ -69,11 +69,11 @@ zle -N prepend-sudo
 # in emacs mode; vi mode uses the built-in vi-pound-insert.
 function pound-toggle() {
   if [[ "$BUFFER" = '#'* ]]; then
-    [[ $CURSOR != $#BUFFER ]] && (( CURSOR -= 1 ))
+    [[ $CURSOR != $#BUFFER ]] && ((CURSOR -= 1))
     BUFFER="${BUFFER:1}"
   else
     BUFFER="#$BUFFER"
-    (( CURSOR += 1 ))
+    ((CURSOR += 1))
   fi
 }
 zle -N pound-toggle
@@ -87,8 +87,11 @@ zle -N copybuffer
 # Ctrl+Z suspends a job, so let it resume one too. Whatever you had typed is
 # stashed, and comes back the next time the job stops.
 function fg-job() {
-  (( $#jobstates )) || { zle -M "fg-job: no jobs"; return; }
-  (( $#BUFFER )) && zle push-input
+  (($#jobstates)) || {
+    zle -M "fg-job: no jobs"
+    return
+  }
+  (($#BUFFER)) && zle push-input
   # A leading space keeps fg out of history, given hist_ignore_space.
   [[ -o hist_ignore_space ]] && BUFFER=' fg' || BUFFER='fg'
   zle accept-line
@@ -99,12 +102,12 @@ zle -N fg-job
 # Both widgets share this function, which reads $WIDGET for the end wanted.
 function goto-line-or-buffer-edge() {
   local -i hno=$HISTNO
-  if [[ ( $LBUFFER[-1] == $'\n' && $WIDGET == beginning-of* ) ||
-        ( $RBUFFER[1] == $'\n' && $WIDGET == end-of* ) ]]; then
+  if [[ ($LBUFFER[-1] == $'\n' && $WIDGET == beginning-of*) ||
+    ($RBUFFER[1] == $'\n' && $WIDGET == end-of*) ]]; then
     zle .${WIDGET:s/line-or-buffer/buffer-or-history/} -- "$@"
   else
     zle .${WIDGET:s/line-or-buffer/line-hist/} -- "$@"
-    (( HISTNO != hno )) && zle .${WIDGET:s/line-or-buffer/buffer-or-history/} -- "$@"
+    ((HISTNO != hno)) && zle .${WIDGET:s/line-or-buffer/buffer-or-history/} -- "$@"
   fi
 }
 zle -N beginning-of-line-or-buffer goto-line-or-buffer-edge
@@ -141,7 +144,7 @@ function add-accept-line-hook() {
     return
   fi
   for fn in "$@"; do
-    (( $accept_line_hook[(Ie)$fn] )) || accept_line_hook+=("$fn")
+    (($accept_line_hook[(Ie)$fn])) || accept_line_hook+=("$fn")
   done
 }
 
@@ -150,7 +153,7 @@ function add-accept-line-hook() {
 function run-accept-line-hooks() {
   local _line_hook
   for _line_hook in $accept_line_hook; do
-    (( $+functions[${_line_hook%% *}] )) && "${=_line_hook}"
+    (($+functions[${_line_hook%% *}])) && "${=_line_hook}"
   done
   return 0
 }
@@ -158,19 +161,21 @@ function run-accept-line-hooks() {
 # Wrap the widget rather than rebind Enter, so ^M, ^J, vicmd Enter, and widgets
 # calling accept-line themselves all go through it. Whoever wrapped it first
 # keeps their turn. The guard stops a re-source wrapping our own wrapper.
-if (( ! $+functions[accept-line-with-hooks] )); then
-  case ${widgets[accept-line]} in
-    user:*)
-      zle -N accept-line-orig "${widgets[accept-line]#user:}"
-      function accept-line-with-hooks() {
-        run-accept-line-hooks
-        zle accept-line-orig -- "$@"
-      } ;;
-    *)
-      function accept-line-with-hooks() {
-        run-accept-line-hooks
-        zle .accept-line
-      } ;;
+if ((! $+functions[accept - line - with - hooks])); then
+  case ${widgets[accept - line]} in
+  user:*)
+    zle -N accept-line-orig "${widgets[accept - line]#user:}"
+    function accept-line-with-hooks() {
+      run-accept-line-hooks
+      zle accept-line-orig -- "$@"
+    }
+    ;;
+  *)
+    function accept-line-with-hooks() {
+      run-accept-line-hooks
+      zle .accept-line
+    }
+    ;;
   esac
   zle -N accept-line accept-line-with-hooks
 fi
@@ -183,17 +188,17 @@ function command-is-complete() {
   local f=-command-test
 
   # An odd number of trailing backslashes continues the line.
-  (( ${#${1##*[^\\]}} % 2 )) && return 1
+  ((${#${1##*[^\\]}} % 2)) && return 1
 
   unfunction -- $f 2>/dev/null
   functions[$f]="$1" 2>/dev/null || return 1
-  [[ -v functions[$f] ]]         || return 1
+  [[ -v functions[$f] ]] || return 1
   unfunction -- $f
 
   # `for x` and `cat <<END` are legal function bodies but unfinished commands.
   # If do/done finishes them, the command was waiting for more.
   functions[$f]="$1"$'\ndo\ndone' 2>/dev/null || return 0
-  [[ -v functions[$f] ]]                      || return 0
+  [[ -v functions[$f] ]] || return 0
   unfunction -- $f
   return 1
 }
@@ -219,25 +224,25 @@ zle -N accept-line-or-newline
 # Common terminal key fixes: terminfo first, xterm fallbacks second. Arrows
 # take both fallbacks, since terminfo names only the one its terminal sends and
 # a stray SS3 arrow would otherwise miss the search widgets.
-bindkey-multiple beginning-of-line-or-buffer       "${terminfo[khome]-}" '^[[H'
-bindkey-multiple end-of-line-or-buffer             "${terminfo[kend]-}"  '^[[F'
-bindkey-multiple delete-char                       "${terminfo[kdch1]-}" '^[[3~'
-bindkey-multiple up-line-or-history-search         "${terminfo[kcuu1]-}" '^[[A' '^[OA'
-bindkey-multiple down-line-or-history-search       "${terminfo[kcud1]-}" '^[[B' '^[OB'
-bindkey-multiple backward-word                     '^[[1;5D'             # Ctrl + Left
-bindkey-multiple forward-word                      '^[[1;5C'             # Ctrl + Right
+bindkey-multiple beginning-of-line-or-buffer "${terminfo[khome]-}" '^[[H'
+bindkey-multiple end-of-line-or-buffer "${terminfo[kend]-}" '^[[F'
+bindkey-multiple delete-char "${terminfo[kdch1]-}" '^[[3~'
+bindkey-multiple up-line-or-history-search "${terminfo[kcuu1]-}" '^[[A' '^[OA'
+bindkey-multiple down-line-or-history-search "${terminfo[kcud1]-}" '^[[B' '^[OB'
+bindkey-multiple backward-word '^[[1;5D' # Ctrl + Left
+bindkey-multiple forward-word '^[[1;5C'  # Ctrl + Right
 
 # Terminals disagree on what Alt + arrow sends, so bind all three spellings.
-if (( $+widgets[prevd-or-backward-word] )); then
+if (($+widgets[prevd - or - backward - word])); then
   bindkey-multiple prevd-or-backward-word '^[[1;3D' '^[[1;9D' '^[^[[D'
-  bindkey-multiple nextd-or-forward-word  '^[[1;3C' '^[[1;9C' '^[^[[C'
+  bindkey-multiple nextd-or-forward-word '^[[1;3C' '^[[1;9C' '^[^[[C'
 else
-  bindkey-multiple backward-word          '^[[1;3D' '^[[1;9D' '^[^[[D'
-  bindkey-multiple forward-word           '^[[1;3C' '^[[1;9C' '^[^[[C'
+  bindkey-multiple backward-word '^[[1;3D' '^[[1;9D' '^[^[[D'
+  bindkey-multiple forward-word '^[[1;3C' '^[[1;9C' '^[^[[C'
 fi
 
 # Vi keybindings.
-bindkey-multiple -M vicmd up-line-or-history-search   "${terminfo[kcuu1]-}" '^[[A' '^[OA'
+bindkey-multiple -M vicmd up-line-or-history-search "${terminfo[kcuu1]-}" '^[[A' '^[OA'
 bindkey-multiple -M vicmd down-line-or-history-search "${terminfo[kcud1]-}" '^[[B' '^[OB'
 
 # Backspace and word deletion.
