@@ -6,6 +6,11 @@
 # .zshrc - Zsh file loaded on interactive shell sessions.
 #
 
+# Start tmux only on SSH
+if [[ -z "$TMUX" && -a -n "$SSH_TTY" ]]; then
+  exec tmux new -ADX
+fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.

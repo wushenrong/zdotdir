@@ -45,7 +45,6 @@ repos=(
   'Freed-Wu/fzf-tab-source'
   'romkatv/powerlevel10k'
   'romkatv/zsh-bench'
-  'romkatv/zsh-defer'
   'hlissner/zsh-autopair'
   'zdharma-continuum/fast-syntax-highlighting'
   'zsh-users/zsh-autosuggestions'
