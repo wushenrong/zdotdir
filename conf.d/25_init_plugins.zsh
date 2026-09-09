@@ -10,15 +10,13 @@ function plugin-source {
     [[ $plugdir = /* ]] || plugdir=$ZPLUGINDIR/$plugdir
     fpath+=$plugdir
     local initfile=$plugdir/${plugdir:t}.plugin.zsh
-    (($+functions[zsh-defer])) && zsh-defer . $initfile || . $initfile
+    source <($initfile)
   done
 }
 
 # Initialize plugins
 plugins=(
   powerlevel10k
-
-  zsh-defer
 
   fzf-tab
   fzf-tab-source
