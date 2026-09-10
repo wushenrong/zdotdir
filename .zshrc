@@ -7,7 +7,7 @@
 #
 
 # Start tmux only on SSH
-if [[ -z "$TMUX" && -a -n "$SSH_TTY" ]]; then
+if [[ -z "$TMUX" && -n "$ZSH_SCRIPT" && -n "$SSH_TTY" ]]; then
   exec tmux new -ADX
 fi
 
