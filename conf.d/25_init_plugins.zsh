@@ -10,7 +10,7 @@ function plugin-source {
     [[ $plugdir = /* ]] || plugdir=$ZPLUGINDIR/$plugdir
     fpath+=$plugdir
     local initfile=$plugdir/${plugdir:t}.plugin.zsh
-    source <($initfile)
+    source $initfile
   done
 }
 
