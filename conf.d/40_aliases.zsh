@@ -34,18 +34,21 @@ source <(zoxide init zsh --cmd cd)
 
 # bat/cat
 local _which_bat
+
 if (($+commands[bat])); then
   _which_bat=bat
 elif (($+commands[batcat])); then
   _which_bat=batcat
 fi
 
-export MANPAGER="${_which_bat} --strip-ansi=always -plman"
+if [[ -n "$_which_bat" ]]; then
+  export MANPAGER="$_which_bat --strip-ansi=always -plman"
 
-alias -g -- -h="-h 2>&1 | ${_which_bat} -plhelp"
-alias -g -- --help="--help 2>&1 | ${_which_bat} -plhelp"
+  alias -g -- -h="-h 2>&1 | $_which_bat -plhelp"
+  alias -g -- --help="--help 2>&1 | $_which_bat -plhelp"
 
-alias cat="${_which_bat}"
+  alias cat="$_which_bat"
+fi
 
 unset _which_bat
 
@@ -59,6 +62,9 @@ alias diff=delta
 
 # grep/ripgrep
 alias grep=rg
+alias egrep=grep
+alias fgrep='grep -F'
+
 gred() { rg --json "$1" | delta; }
 
 # bsdtar/gnutar
@@ -67,7 +73,11 @@ alias tarls='bsdtar -tvf'
 alias untar='bsdtar -xvf'
 
 # btop/top
-alias top=btop
+if (($+commands[btop])); then
+  alias top=btop
+elif (($+commands[htop])); then
+  alias top=htop
+fi
 
 # fastfetch/fetch
 alias fetch=fastfetch

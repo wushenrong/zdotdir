@@ -89,18 +89,6 @@ export BUNDLE_USER_PLUGIN=$XDG_DATA_HOME/bundle
 export RUSTUP_HOME=$XDG_DATA_HOME/rustup
 export CARGO_HOME=$XDG_DATA_HOME/cargo
 
-# Editors
-export EDITOR=nano
-export VISUAL="code --wait"
-
-# Pager
-export PAGER=less
-export LESS='-g -i -M -R -S -w -z-4'
-
-# Locale
-export LANG=en_US.UTF-8
-export TIME_STYLE=long-iso
-
 # ZSH History
 HISTORY_IGNORE='(cd(|i| *)|chezmoi (apply|update)*|cl(ear|s)|code .|croc(| *)|dnf up*|exit|*fetch(| *)|fg|git(| [a-z])|halt|history|?kill(| *)|l[als\.]|poweroff|ps|pwd|quit|reboot|shutdown|tmux(| *)|topgrade|tree)'
 HISTFILE=$XDG_STATE_HOME/zsh_history

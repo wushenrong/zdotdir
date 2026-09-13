@@ -3,11 +3,11 @@
 # SPDX-License-Identifier: MIT
 
 # Replace the stub run-help (aliased to man) with the real autoload version.
-(($+aliases[run - help])) && unalias run-help
+(($+aliases[run-help])) && unalias run-help
 autoload -Uz run-help
 alias help=run-help
 
-if ((! $+commands[open] && $+commands[xdg - open])); then
+if ((! $+commands[open] && $+commands[xdg-open])); then
   alias open='xdg-open'
 fi
 
