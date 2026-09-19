@@ -13,8 +13,8 @@ export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
 export XDG_STATE_HOME=${XDG_STATE_HOME:-$HOME/.local/state}
 
 # Bootstrap ZDOTDIR and ZPLUGINDIR
-export ZDOTDIR=${ZDOTDIR:-$XDG_CONFIG_HOME/zsh}
-export ZPLUGINDIR=${ZPLUGINDIR:-$XDG_DATA_HOME/zsh/plugins}
+ZDOTDIR=${ZDOTDIR:-$XDG_CONFIG_HOME/zsh}
+ZPLUGINDIR=${ZPLUGINDIR:-$XDG_DATA_HOME/zsh/plugins}
 
 # Claude
 export CLAUDE_CONFIG_DIR=$XDG_CONFIG_HOME/claude
@@ -105,9 +105,8 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 typeset -gU path fpath cdpath mailpath
 
 path=(
-  $HOME/.local/{,s}bin(N)
+  $HOME/.local/bin
   $CARGO_HOME/bin
   $GOPATH/bin
-  /usr/local/{,s}bin(N)
   $path
 )
