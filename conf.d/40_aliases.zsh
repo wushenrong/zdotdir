@@ -6,7 +6,11 @@
 #
 # SPDX-License-Identifier: MIT
 
-# fix common typos
+# Helpful history commands.
+alias history='fc -li'
+alias histrm='rm $HISTFILE'
+
+# common aliases
 alias quit=exit
 alias cls=clear
 

@@ -90,7 +90,7 @@ export RUSTUP_HOME=$XDG_DATA_HOME/rustup
 export CARGO_HOME=$XDG_DATA_HOME/cargo
 
 # ZSH History
-HISTORY_IGNORE='(cd(|i| *)|chezmoi (apply|update)*|cl(ear|s)|code .|croc(| *)|dnf up*|exit|*fetch(| *)|fg|git(| [a-z])|halt|history|?kill(| *)|l[als\.]|poweroff|ps|pwd|quit|reboot|shutdown|tmux(| *)|topgrade|tree)'
+HISTORY_IGNORE='(cd(|i| *)|chezmoi (apply|update)*|cl(ear|s)|code .*|croc(| *)|dnf up*|exit|*fetch(| *)|fg|git(| [a-z])|halt|help *|history|?kill(| *)|l[als\.]|poweroff|ps|pwd|quit|reboot|rm * -*[rf]*|shutdown|tldr *|tmux(| *)|topgrade|tree)'
 HISTFILE=$XDG_STATE_HOME/zsh_history
 SAVEHIST=100000
 HISTSIZE=20000
@@ -102,7 +102,7 @@ AUTOPAIR_PAIRS+=("<" ">")
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # Setup Paths
-typeset -gU path fpath cdpath mailpath
+typeset -gaU path fpath cdpath mailpath
 
 path=(
   $HOME/.local/bin

@@ -59,7 +59,7 @@ setopt hist_save_no_dups      # Do not write a duplicate event to the history fi
 setopt hist_verify            # Do not execute immediately upon history expansion.
 setopt inc_append_history     # Write to the history file immediately, not when the shell exits.
 setopt NO_hist_beep           # Don't beep when accessing non-existent history.
-setopt NO_share_history       # Don't share history between all sessions.
+setopt share_history          # Do share history between all sessions.
 
 # Prompt options
 setopt prompt_subst # Expand parameters in prompt variables.
